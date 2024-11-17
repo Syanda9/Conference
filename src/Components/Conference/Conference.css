@@ -1,0 +1,126 @@
+/* Main container for layout */
+.conference {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Optional: Adjust height for full-page view */
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+/* Text section takes up half of the screen */
+.conference-text {
+  flex: 1;
+  padding: 20px;
+  margin-left: 6%;
+}
+
+#CO {
+  color: blue;
+  font-family: serif;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5315a3;
+  margin-bottom: 20px;
+  font-family: serif;
+}
+
+p {
+  font-size: 1.5rem;
+  color: #333;
+  font-family: serif;
+}
+
+.event-info {
+  margin-top: 10px;
+}
+
+.event-info p {
+  margin: 5px 0;
+}
+
+/* Buttons Section */
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.buttons button {
+  padding: 10px 15px;
+  background-color: #00b0b9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.buttons button:hover {
+  background-color: #008a90;
+}
+
+/* Displayed content */
+.content {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Upcoming Events button */
+.upcoming-events {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #00b0b9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upcoming-events:hover {
+  background-color: #008a90;
+}
+
+/* Image section takes up the other half but centers a smaller image */
+.conference-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.conference-image img {
+  width: 60%; /* Small image, adjust size as needed */
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+  .conference {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 130px;
+  }
+
+  .conference-image img {
+    width: 70%; /* Adjust size for smaller screens */
+    height: auto;
+    margin-top: 20px;
+    display: none;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+
+.registration-form {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: sans-serif;
+  background-color: #f9f9f9;
+}
+ /*General Styles */
+
+h2, h3, h4 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 0.9em;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.pay-button {
+  margin-top: 10px;
+  background-color: #0070BA;
+}
+
+.pay-button:hover {
+  background-color: #005A96;
+}
+
+/* Delegate Section */
+.delegate-section {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 4px;
+  background: #f7f7f7;
+}
+
+.add-delegate-button {
+  background-color: #007BFF;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.add-delegate-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: #ff4d4d;
+  color: white;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.delete-button:hover {
+  background-color: #d93636;
+}
+
+/* Payment Section */
+.bank-details, .card-details {
+  background: #e9f7f7;
+  padding: 10px;
+  border: 1px solid #b2dfdf;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.bank-details p, .card-details label {
+  margin: 5px 0;
+  font-size: 1em;
+  font-family: sans-serif;
+}
+
+/* Checkbox and Radio Styles */
+input[type='checkbox'], input[type='radio'] {
+  margin-right: 10px;
+}
+
+label{
+  font-family: Arial;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .registration-form {
+    padding: 15px;
+  }
+
+  .form-input, button {
+    font-size: 0.85em;
+  }
+
+  h2, h3, h4 {
+    font-size: 1em;
+  }
+}
