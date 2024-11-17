@@ -1,6 +1,6 @@
 import React from 'react';
 import './Explore.css';
-import image1 from '../../assets/mine water.jpeg'
+import image1 from '../../assets/minewater.jpeg'
 import image2 from '../../assets/quality.jpeg'
 import image3 from '../../assets/waste3.jpeg' 
 
