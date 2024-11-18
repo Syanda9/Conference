@@ -17,7 +17,7 @@ const App = () => {
     <div>
         <Navbar />
         <Hero/>
-        <Overview/>
+        
         <Conference/>
         <Explore/>
         <ContactForm/>
