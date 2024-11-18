@@ -37,7 +37,7 @@ class Explore extends React.Component {
             />
             <div className="card-content">
               <h3 className="card-topic">Water Quality</h3>
-              <p className="card-date">Date: Feb , 2025</p>
+              <p className="card-date">Date: Jan 11-12, 2025</p>
               <p className="card-location">Location: Johannesburg</p>
             </div>
           </div>
@@ -50,7 +50,7 @@ class Explore extends React.Component {
             />
             <div className="card-content">
               <h3 className="card-topic">Waste Water </h3>
-              <p className="card-date">Date: Feb , 2025</p>
+              <p className="card-date">Date: Jan 30-31 , 2025</p>
               <p className="card-location">Location: Johannesburg</p>
             </div>
           </div>

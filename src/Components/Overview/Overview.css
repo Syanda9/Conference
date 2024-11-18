@@ -44,64 +44,13 @@ body{
     gap: 20px;
     font-size: 18px;
     font-weight:500;
+    line-height: 1.5;
 }
 .skills{
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
- /*.aSkills{
-    display: flex;
-    gap: 50px;
-    align-items:center;
-    transition:0.3s;
-}
-.aSkills p{
-    min-width:150px;
-    font-size: 24px;
-    font-weight: 500;
-}
-.aSkills hr{
-    outline: none;
-    border: none;
-    width: 50%;
-    height: 8px;
-    border-radius: 50px;
-    background: linear-gradient(264deg, orange -5.09%, purple 106.28%);
-} 
-
-.achievement{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    transition: 0.5s;
-}
-.achievement h1{
-    font-size:20px;
-    font-weight: 700;
-    background: linear-gradient(270deg, orange 50.41%, purple 90%);
-    -webkit-background-clip:text; 
-    -webkit-text-fill-color: transparent;
-}
-.achievement p{
-    font-size: 18px;
-    font-weight: 500;
-    color: blue;
-}
- /*.aSkills:hover{
-    transform: scale(1.05);
-    transition: 0.3s;
-} 
-.achievement:hover{
-    transform: scale(1.05);
-    transition:0.3s ;
-}
-.achievement img{
-    width: 30%;
-    height: 70%;
-    border-radius: 50%;
-} */
 @media(max-width:1100px){
     .body{
         overflow-x: hidden;
@@ -123,7 +72,7 @@ body{
     }
     .para{
         font-size: 15px;
-        line-height: 20px;
+        line-height: 30px;
     }
  
 }  

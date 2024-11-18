@@ -23,15 +23,15 @@
 h1 {
   font-size: 2rem;
   font-weight: bold;
-  color: #5315a3;
+  color: rgb(27, 20, 122);
   margin-bottom: 20px;
-  font-family: serif;
+  font-family: helvetica;
 }
 
 p {
   font-size: 1.5rem;
   color: #333;
-  font-family: serif;
+  font-family: Helvetica, sans-serif;
 }
 
 .event-info {
@@ -72,7 +72,10 @@ p {
   border-radius: 5px;
   padding: 10px;
   background-color: #f9f9f9;
+  display: block; /* Ensures it takes up full width */
+  width: 100%; /* Allows it to push other content down */
 }
+
 
 /* Upcoming Events button */
 .upcoming-events {

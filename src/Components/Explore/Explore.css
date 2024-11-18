@@ -53,6 +53,13 @@
     padding: 10px;
   }
   
+  .card-content h3{
+    font-family: helvetica;
+  }
+  .card-content p{
+    font-family: helvetica;
+    font-size: 1rem;
+  }
   .card-topic {
     font-size: 18px;
     font-weight: bold;

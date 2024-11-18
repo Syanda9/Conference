@@ -4,7 +4,7 @@ import image1 from "../../assets/pexels.jpg";
 import image3 from "../../assets/istockphoto.jpg";
 
 const images = [
-  { src: image1, content: "Explore the future of clean water" }, // First image with unique text
+  { src: image1, content: "BizStrat - Creating Strategic Business Platforms For Intelligent Innovation" }, // First image with unique text
   { src: image3, content: "PFAS Conference 2025" }, // Second image
 ];
 
