@@ -67,17 +67,20 @@ p {
   width: 60%; /* Small image, adjust size as needed */
   height: auto;
   border-radius: 8px;
+  
 }
 @media (max-width: 768px) {
   .conference {
     flex-direction: column;
     text-align: center;
     padding-top: 130px;
+    
   }
 
   .conference-image img {
     width: 70%; /* Adjust size for smaller screens */
     height: auto;
-    margin-top: 20px;
+  
+    display: none;
   }
 }
