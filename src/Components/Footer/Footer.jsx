@@ -16,7 +16,7 @@ const Footer = () => {
         <a href="/track-order"><Link to="conference" smooth="true" duration={500}>Conference</Link></a>
       </div>
       <div className="footer-copyright">
-        © 2024 . BizStrat. Site Designed By Pholoba
+        © 2024 . BizStrat. Site Developed By <a href="https://github.com/Syanda9/"> <strong style={{color:"blue", fontFamily:"sans-serif"}}>Pholoba</strong></a>
       </div>
     </footer>
   );

@@ -145,7 +145,7 @@ const RegistrationForm = () => {
           onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
           checked={formData.attendanceOption === 'Face-to-Face (R7990.00)'}
         />
-        Face-to-Face (R7990.00 excl. VAT per delegate)
+        Venue (R7990.00 excl. VAT per delegate)
       </label>
       <label>
         <input
@@ -185,7 +185,7 @@ const RegistrationForm = () => {
           onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
           checked={formData.attendanceOption === 'Online (R5490.00)'}
         />
-        Online Option- MST & ZOOM (R5490.00 excl. VAT per delegate)
+       ,<strong>Online Option </strong>- MST & ZOOM (R5490.00 excl. VAT per delegate)
       </label>
 
       <h4>Payment Method</h4>
