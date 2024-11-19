@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 import Navbar from './Components/Navbar/Navbar'
 import Hero from './Components/Hero/Hero'
@@ -12,15 +12,25 @@ import Content from './Components/Content/Content'
 
 
 const App = () => {
+  const [currentView, setCurrentView] = useState('home');
+
 
   return (
     <div>
-        <Navbar />
-        <Hero/>
-        <Overview/>
-        <Conference/>
+        <Navbar setView={setCurrentView} />
+        {currentView === 'home' && (
+        <> 
+        <Hero onRegisterNow={()=>setCurrentView('registration')}/>
+        <Conference onMoreInfo={()=>setCurrentView('registration')}/>
         <Explore/>
         <ContactForm/>
+        </>
+        )}
+        {currentView ==='hero' && <Hero onRegisterNow={()=> setCurrentView('registration')}/>}
+        {currentView ==='conference' && <Conference onMoreInfo={()=> setCurrentView('registration')}/>}
+        {currentView === 'explore' && <Explore/>}
+        {currentView === 'contact' && <ContactForm/>}
+        {currentView === 'registration' && <RegistrationForm/>}
       <Footer/>
     </div>
   )

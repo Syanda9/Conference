@@ -8,7 +8,7 @@ const images = [
   { src: image3, content: "PFAS Conference 2025" }, // Second image
 ];
 
-const Hero = () => {
+const Hero = ({onRegisterNow}) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const Hero = () => {
             <h1 className="hero-title">{currentImage.content}</h1> 
             <p id="FO">FOREVER CHEMICALS</p>
             <br/>
-            <button className="hero-button">Register Now</button>
+            <button className="hero-button" onClick={onRegisterNow}>Register Now</button>
           </>
         )}
       </div>
