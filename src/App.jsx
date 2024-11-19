@@ -13,21 +13,24 @@ import Content from './Components/Content/Content'
 
 const App = () => {
   const [currentView, setCurrentView] = useState('home');
-
+  const handleViewChange = (view) => {
+    setCurrentView(view);
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
 
   return (
     <div>
-        <Navbar setView={setCurrentView} />
-        {currentView === 'home' && (
-        <> 
-        <Hero onRegisterNow={()=>setCurrentView('registration')}/>
-        <Conference onMoreInfo={()=>setCurrentView('registration')}/>
+        <Navbar setView={handleViewChange}/>
+        {currentView ==='home' && (
+        <div>
+        <Hero onRegisterNow={()=> handleViewChange('registration')}/>
+        <Conference onMoreInfo={()=> handleViewChange('registration')}/>
         <Explore/>
         <ContactForm/>
-        </>
+        </div>
         )}
-        {currentView ==='hero' && <Hero onRegisterNow={()=> setCurrentView('registration')}/>}
-        {currentView ==='conference' && <Conference onMoreInfo={()=> setCurrentView('registration')}/>}
+        {currentView ==='hero' && <Hero onRegisterNow={()=> handleViewChange('registration')}/>}
+        {currentView ==='conference' && <Conference onMoreInfo={()=> handleViewChange('registration')}/>}
         {currentView === 'explore' && <Explore/>}
         {currentView === 'contact' && <ContactForm/>}
         {currentView === 'registration' && <RegistrationForm/>}
