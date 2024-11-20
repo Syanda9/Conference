@@ -1,6 +1,7 @@
 .content-container {
     font-family: Arial, sans-serif;
     margin: 20px;
+    background-color: #85cbee;
   }
   
   .header h1 {
@@ -52,6 +53,6 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
   }
   

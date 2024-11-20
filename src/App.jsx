@@ -11,6 +11,7 @@ import Explore from './Components/Explore/Explore'
 import Content from './Components/Content/Content'
 
 
+
 const App = () => {
   const [currentView, setCurrentView] = useState('home');
   const handleViewChange = (view) => {

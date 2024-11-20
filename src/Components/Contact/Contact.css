@@ -1,6 +1,6 @@
 /* Main container */
 body{
-    background-color: rgb(219, 219, 233);
+    background-color: #85cbee;
 }
 .subtitle{
   text-align: center;
@@ -14,7 +14,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: rgb(219, 219, 233);
+    background-color: #85cbee;
     padding:20px;
   }
   

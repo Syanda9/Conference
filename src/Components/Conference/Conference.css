@@ -6,6 +6,7 @@
   height: 100vh; /* Optional: Adjust height for full-page view */
   padding: 20px;
   font-family: sans-serif;
+  background-color: #85cbee;
 }
 
 /* Text section takes up half of the screen */
@@ -16,22 +17,23 @@
   
 }
 #CO{
-  color: blue;
+  color: #062c53;
   font-family: serif;
+
 }
 
 h1 {
   font-size: 2rem;
   font-weight: bold;
-  color: #5315a3;
+  color: #062c53;
   margin-bottom: 20px;
-  font-family: serif;
+  
 }
 
 p {
   font-size: 1.5rem;
-  color: #333;
-  font-family: serif;
+  color: #000000;
+  
 }
 
 .event-info {

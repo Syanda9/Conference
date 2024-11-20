@@ -4,18 +4,20 @@
   padding:0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Outfit;
+  font-family:  Arial;
 
 }
 body{
   min-height: 100vh;
-  background-color: #fcfcfc;
+  background-color: #85cbee;
 }
 a{
   text-decoration: none;
   color: inherit;
 }
-
+h1{
+font-family: Arial;
+}
 hr{
   height: 1px;
   background: color #a9a9a9;
