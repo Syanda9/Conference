@@ -8,7 +8,7 @@ const Conference = ({ onMoreInfo }) => {
         <h1>
           PFAS (Forever Chemicals) HYBRID CONFERENCE 2025
           <br />
-          <span id="AN">AN <span className="highlight">AFRICAN</span> PERSPECTIVE</span>
+          <span id="AN">AN AFRICAN PERSPECTIVE</span>
         </h1>
         <p></p>
         <div className="event-info">

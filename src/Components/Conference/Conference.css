@@ -29,12 +29,14 @@
   flex: 1;
   padding: 20px;
   margin-left: 6%;
+  
 }
 
 #AN {
-  color: #000000;
+  color: white;
   font-family: sans-serif;
   font-size: 1.5rem;
+  font-weight: 700px;
 }
 
 .conference h1 {
@@ -42,15 +44,17 @@
   font-weight: bold;
   color: rgb(255, 255, 255);
   margin-bottom: 20px;
+  
 }
 
 .highlight {
-  color: #ff5733; /* Custom color for highlighted words */
+  color:white;
 }
 
 .conference p {
   font-size: 1.5rem;
   color: #ffffff;
+  
 }
 
 .event-info {
