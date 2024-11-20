@@ -155,7 +155,7 @@ const RegistrationForm = () => {
           onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
           checked={formData.attendanceOption === 'Register & pay by 25/10/24 & Pay R6990.00 excl. Vat per Delegate'}
         />
-        Register & pay by 25/10/24 & Pay R6990.00 excl. Vat per Delegate 
+        Register & pay by 13/12/24 & Pay R6990.00 excl. Vat per Delegate 
       </label>
       <label>
         <input

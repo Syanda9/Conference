@@ -24,13 +24,13 @@ const App = () => {
         <Navbar setView={handleViewChange}/>
         {currentView ==='home' && (
         <div>
-        <Hero onRegisterNow={()=> handleViewChange('registration')}/>
+      
         <Conference onMoreInfo={()=> handleViewChange('registration')}/>
         <Explore/>
         <ContactForm/>
         </div>
         )}
-        {currentView ==='hero' && <Hero onRegisterNow={()=> handleViewChange('registration')}/>}
+       
         {currentView ==='conference' && <Conference onMoreInfo={()=> handleViewChange('registration')}/>}
         {currentView === 'explore' && <Explore/>}
         {currentView === 'contact' && <ContactForm/>}

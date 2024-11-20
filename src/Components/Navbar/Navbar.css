@@ -12,13 +12,13 @@
 }
 
 .bu{
-  background-color: rgb(219, 219, 233);
-  color: rgb(8, 33, 88);
+  background-color: #85cbee;
+  color: #062c53;
   font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
 }
 .bu:hover{
-  background-color:rgb(37, 103, 129) ;
+  background-color: #062c53;
   color: white;
 }
 

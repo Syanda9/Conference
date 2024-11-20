@@ -61,7 +61,7 @@ body{
     transform: translateY(-50%);
     font-size: 18px;
     color: #085c24;
-    background: rgb(219, 219, 233);
+    background:rgb(219, 219, 223);
     transition: all 0.3s ease;
     pointer-events: none;
     padding: 0 5px;

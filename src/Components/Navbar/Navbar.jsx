@@ -13,7 +13,6 @@ const Navbar = ({setView}) => {
   return (
     <nav className="navbar">
       <div className="left-container">
-        <h1 className="title">PFAS CONFERENCE</h1>
        
         <img src={image1} alt='' />
       </div>
