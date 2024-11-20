@@ -1,5 +1,6 @@
 import React from 'react';
 import './Conference.css';
+import image1 from '../../assets/pexels.jpg'
 
 const Conference = ({ onMoreInfo }) => {
   return (
