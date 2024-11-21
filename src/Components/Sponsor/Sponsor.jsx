@@ -1,6 +1,7 @@
 import React from "react";
+import "./Sponsor.css";
 
-const SponsorshipPackages = () => {
+const Sponsor = () => {
   const packages = [
     {
       title: "Platinum Sponsor",
@@ -53,68 +54,40 @@ const SponsorshipPackages = () => {
   ];
 
   return (
-    <div style={{ backgroundColor: "#007BFF", color: "#fff", padding: "20px", fontFamily: "Arial, sans-serif" }}>
+    <div className="sponsor-container">
       {/* Main Heading */}
-      <div style={{ textAlign: "center", marginBottom: "20px" }}>
-        <h1 style={{ fontSize: "36px", fontWeight: "bold", marginBottom: "10px" }}>Sponsors</h1>
-        <p style={{ fontSize: "18px", lineHeight: "1.5", maxWidth: "600px", margin: "0 auto" }}>
+      <div className="sponsor-header">
+        <h1>Sponsors</h1>
+        <p>
         Partnering with us as a sponsor offers unmatched opportunities to connect with your target audience. 
         Showcase your brand and expand your reach through our tailored sponsorship packages.
         </p>
-        <button
-          style={{
-            marginTop: "20px",
-            padding: "10px 20px",
-            backgroundColor: "#FFC107",
-            color: "#000",
-            fontWeight: "bold",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
-          Become a Sponsor
-        </button>
+        <button className="sponsor-button">Become a Sponsor</button>
       </div>
 
       {/* Subheader */}
-      <h2 style={{ textAlign: "left", fontSize: "28px", marginTop: "40px", marginBottom: "20px", color:"white" }}>
-        Sponsorship and Exhibition Benefits
-      </h2>
+      <h2 className="sponsor-subheader">Sponsorship and Benefits</h2>
 
       {/* Sponsorship Cards */}
-      <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
+      <div className="sponsor-cards">
         {packages.map((pkg, index) => (
-          <div
-            key={index}
-            style={{
-              border: "1px solid #ccc",
-              borderRadius: "8px",
-              width: "300px",
-              padding: "15px",
-              backgroundColor: "#fff",
-              color: "#000",
-              boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-              textAlign: "center",
-            }}
-          >
-            <h3 style={{ fontWeight: "bold", margin: "10px 0", fontSize: "18px" }}>{pkg.title}</h3>
-            <ul style={{ textAlign: "left", paddingLeft: "20px" }}>
+          <div key={index} className="sponsor-card">
+            <h3>{pkg.title}</h3>
+            <ul>
               {pkg.benefits.map((benefit, idx) => (
-                <li key={idx} style={{ marginBottom: "8px" }}>
-                  {benefit}
-                </li>
+                <li key={idx}>{benefit}</li>
               ))}
             </ul>
           </div>
         ))}
       </div>
-
+      
     </div>
   );
 };
 
-export default SponsorshipPackages;
+export default Sponsor;
+
 
 
 
