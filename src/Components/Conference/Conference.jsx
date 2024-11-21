@@ -1,8 +1,14 @@
 import React from 'react';
 import './Conference.css';
 import image1 from '../../assets/pexels.jpg'
+import { useNavigate } from 'react-router-dom';
 
-const Conference = ({ onMoreInfo }) => {
+const Conference = () => {
+  const navigate = useNavigate(); // Hook for programmatic navigation
+
+  const handleMoreInfo = () => {
+    navigate('content');
+  }
   return (
     <div className="conference">
       <div className="conference-text">
@@ -22,7 +28,7 @@ const Conference = ({ onMoreInfo }) => {
             <strong>Location:</strong> Johannesburg
           </p>
         </div>
-        <button className="upcoming-events" onClick={onMoreInfo}>
+        <button className="upcoming-events" onClick={handleMoreInfo}>
           More Info
         </button>
       </div>
