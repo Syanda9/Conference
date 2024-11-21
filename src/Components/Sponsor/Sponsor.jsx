@@ -1,7 +1,13 @@
 import React from "react";
 import "./Sponsor.css";
+import { useNavigate } from "react-router-dom";
 
 const Sponsor = () => {
+  const navigate = useNavigate(); // Hook for programmatic navigation
+
+  const handleMoreInfo = () => {
+    navigate('contact');
+  }
   const packages = [
     {
       title: "Platinum Sponsor",
@@ -62,7 +68,7 @@ const Sponsor = () => {
         Partnering with us as a sponsor offers unmatched opportunities to connect with your target audience. 
         Showcase your brand and expand your reach through our tailored sponsorship packages.
         </p>
-        <button className="sponsor-button">Become a Sponsor</button>
+        <button className="sponsor-button" onClick={handleMoreInfo}>Become a Sponsor</button>
       </div>
 
       {/* Subheader */}
@@ -81,7 +87,7 @@ const Sponsor = () => {
           </div>
         ))}
       </div>
-      
+
     </div>
   );
 };

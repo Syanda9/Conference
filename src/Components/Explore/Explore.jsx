@@ -57,7 +57,7 @@ class Explore extends React.Component {
         </div>
 
         <div className="learn-more-container">
-        <button className="learn-more-btn"><a href="https://www.bizstrat.co.za" target="blank" ref="noopener noreferrer">Learn More</a></button>
+        <button className="learn-more-btn"><a href="https://www.bizstrat.co.za/events/workshops/" target="blank" ref="noopener noreferrer">Learn More</a></button>
         </div>
       </div>
     );

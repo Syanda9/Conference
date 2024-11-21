@@ -37,7 +37,7 @@ body {
 
 .office-info h2 {
   font-size: 16px;
-  color: #0a105c;
+  color: #085c24;
   margin-bottom: 10px;
 }
 
@@ -57,7 +57,7 @@ body {
 
 .contact-form {
   width: 100%;
-  max-width: 700px;
+  max-width: 600px;
   background: rgb(219, 219, 233);
   border-radius: 8px;
   padding: 20px;
@@ -95,6 +95,25 @@ body {
 .input-group textarea::placeholder {
   color: #888;
   font-size: 14px;
+}
+
+/* Select Field */
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #231264;
+  border-radius: 4px;
+  outline: none;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  appearance: none; /* Removes default dropdown arrow styling */
+  margin-bottom: 20px; /* Added consistent spacing */
+}
+
+.input-group select:focus {
+  border-color: #007bff;
 }
 
 /* Message Group */
@@ -135,6 +154,8 @@ body {
     min-height: auto;
   }
 }
+
+
 
 
   

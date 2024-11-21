@@ -28,12 +28,16 @@
   .sponsor-button {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #FFC107;
-    color: #000;
+    background-color: #14083f;
+    color: #ffffff;
     font-weight: bold;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  }
+  .sponsor-header Button:hover{
+    background-color: white;
+    color: #14083f;
   }
   
   /* Subheader */

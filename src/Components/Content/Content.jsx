@@ -22,9 +22,9 @@ class Content extends Component {
 
     // Content for each tab
     const content = {
-      Overview: <p>Here are the objectives of the conference.</p>,
-      Agenda: <p>Here is the agenda for the conference.</p>,
-      Speakers: <Speakers/>,
+      Overview: <p></p>,
+      Agenda: <p></p>,
+      Speakers: <p>/</p>,
       Register: <RegistrationForms/>,
       Sponsor: <SponsorshipPackages/>,
     };
