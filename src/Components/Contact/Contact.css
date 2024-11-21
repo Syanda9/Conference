@@ -1,102 +1,156 @@
 /* Main container */
-body{
-    background-color: #85cbee;
+body {
+  background-color: #85cbee;
 }
-.subtitle{
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.contact-info {
+  flex: 1 1 300px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.office-info {
+  margin-bottom: 20px;
+}
+
+.office-info h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #085c24;
+}
+
+.office-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Subtitle styling */
+.subtitle {
   text-align: center;
   font-size: 19px;
   margin-top: 40px;
-  padding-top: 70px;
-  justify-items: center;
+  padding-top: 20px;
 }
+
+/* Form container */
 .form-container {
-    display: flex;
-    justify-content: center;
+  flex: 2 1 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #85cbee;
+  padding: 20px;
+}
+
+/* Form styling */
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+  background: rgb(219, 219, 233);
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Form rows */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Input group */
+.input-group {
+  position: relative;
+  width: 100%;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #231264;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+  background: none;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #085c24;
+  background: rgb(219, 219, 223);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  padding: 0 5px;
+}
+
+/* Input focus effects */
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  font-size: 14px;
+  color: #007bff;
+}
+
+/* Message group */
+.message-group {
+  margin-bottom: 20px;
+}
+
+/* Submit button */
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
     align-items: center;
-    min-height: 100vh;
-    background-color: #85cbee;
-    padding:20px;
   }
-  
-  /* Form styling */
-  .contact-form {
-    width: 100%;
-    max-width: 600px;
-    background: rgb(219, 219, 233);
-    border-radius: 8px;
-    padding: 20px;
-    box-sizing: border-box;
+
+  .form-container {
+    min-height: auto;
   }
-  
-  /* Form rows */
-  .form-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  
-  /* Input group */
-  .input-group {
-    position: relative;
+
+  .contact-info {
     width: 100%;
   }
-  
-  .input-group input,
-  .input-group textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #231264;
-    border-radius: 4px;
-    outline: none;
-    box-sizing: border-box;
-    background: none;
-  }
-  
-  .input-group label {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #085c24;
-    background:rgb(219, 219, 223);
-    transition: all 0.3s ease;
-    pointer-events: none;
-    padding: 0 5px;
-  }
-  
-  /* Input focus effects */
-  .input-group input:focus + label,
-  .input-group textarea:focus + label,
-  .input-group input:not(:placeholder-shown) + label,
-  .input-group textarea:not(:placeholder-shown) + label {
-    top: -10px;
-    font-size: 14px;
-    color: #007bff;
-  }
-  
-  /* Message group */
-  .message-group {
-    margin-bottom: 20px;
-  }
-  
-  /* Submit button */
-  .submit-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 18px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #0056b3;
-  }
+}
+
+
   

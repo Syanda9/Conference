@@ -10,7 +10,7 @@ class Explore extends React.Component {
       <div className="explore-container">
         <header className="explore-header">
           <h1 className="header-title">
-            EXPLORE MORE about <span className="highlight">BizStrat</span>
+          <span className="highlight">BizStrat</span>
           </h1>
           <h2 className="sub-header">Upcoming Events</h2>
         </header>

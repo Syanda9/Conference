@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Content.css';
 import RegistrationForms from '../Registration/Registration';
 import Speakers from '../Speaker/Speaker';
+import SponsorshipPackages from '../Sponsor/Sponsor';
 
 class Content extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class Content extends Component {
       Agenda: <p>Here is the agenda for the conference.</p>,
       Speakers: <Speakers/>,
       Register: <RegistrationForms/>,
+      Sponsor: <SponsorshipPackages/>,
     };
 
     return (
@@ -33,15 +35,15 @@ class Content extends Component {
           <h1>PFAS (Forever Chemicals) Conference 2025</h1>
         </div>
         <div className="details">
-          <p>Date: 28-27 Feb 2025</p>
-          <p>Address: Indaba Hotel, Fourways, Sandton</p>
-          <p>City: Johannesburg</p>
-          <p>For More Info Contact:</p>
+          <p>28-27 Feb 2025</p>
+          <p>Sandton, JHB.</p>
+          <p></p>
+          <p>For More Info</p>
           <p>Tel: 0878028776</p>
           <p>Email: admin@bizstrat.co.za</p>
         </div>
         <div className="tabs">
-          {['Overview', 'Agenda', 'Speakers', 'Register'].map((tab) => (
+          {['Overview', 'Agenda', 'Speakers', 'Register','Sponsor'].map((tab) => (
             <button
               key={tab}
               className={activeTab === tab ? 'active-tab' : ''}
