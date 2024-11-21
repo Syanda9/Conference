@@ -2,6 +2,8 @@
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #85cbee;
+    font-family: sans-serif;
+     margin-top: 85px;
   }
   
   .header h1 {
@@ -20,6 +22,7 @@
   .details p {
     margin: 5px 0;
     text-align: left;
+    font-size: 1.5rem;
   }
   
   .tabs {
@@ -31,7 +34,7 @@
   
   .tabs button {
     padding: 10px 20px;
-    background-color: #f0f0f0;
+    background-color: #007bff; 
     border: 1px solid #ccc;
     cursor: pointer;
     border-radius: 5px;
@@ -39,7 +42,7 @@
   }
   
   .tabs button.active-tab {
-    background-color: #007bff;
+    background-color: #1b0d68;
     color: white;
     border-color: #007bff;
   }

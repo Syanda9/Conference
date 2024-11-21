@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import './Content.css';
+import RegistrationForms from '../Registration/Registration';
+import Speakers from '../Speaker/Speaker';
 
 class Content extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: 'Objectives', // Default active tab
+      activeTab: 'Overview', // Default active tab
     };
   }
 
@@ -19,28 +21,27 @@ class Content extends Component {
 
     // Content for each tab
     const content = {
-      Objectives: <p>Here are the objectives of the conference.</p>,
+      Overview: <p>Here are the objectives of the conference.</p>,
       Agenda: <p>Here is the agenda for the conference.</p>,
-      Speakers: <p>Here is the list of speakers for the conference.</p>,
-      Register: <p>Here is how you can register for the conference.</p>,
+      Speakers: <Speakers/>,
+      Register: <RegistrationForms/>,
     };
 
     return (
       <div className="content-container">
         <div className="header">
-          <h1>PFAS Conference</h1>
-          <h2>Forever Chemicals</h2>
+          <h1>PFAS (Forever Chemicals) Conference 2025</h1>
         </div>
         <div className="details">
-          <p>Date: [Insert Date Here]</p>
-          <p>Address: [Insert Address Here]</p>
-          <p>City: [Insert City Here]</p>
+          <p>Date: 28-27 Feb 2025</p>
+          <p>Address: Indaba Hotel, Fourways, Sandton</p>
+          <p>City: Johannesburg</p>
           <p>For More Info Contact:</p>
-          <p>Tel: [Insert Telephone Number Here]</p>
-          <p>Email: [Insert Email Here]</p>
+          <p>Tel: 0878028776</p>
+          <p>Email: admin@bizstrat.co.za</p>
         </div>
         <div className="tabs">
-          {['Objectives', 'Agenda', 'Speakers', 'Register'].map((tab) => (
+          {['Overview', 'Agenda', 'Speakers', 'Register'].map((tab) => (
             <button
               key={tab}
               className={activeTab === tab ? 'active-tab' : ''}

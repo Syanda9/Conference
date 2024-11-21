@@ -9,6 +9,7 @@ import RegistrationForm from './Components/Registration/Registration'
 import Conference from './Components/Conference/Conference'
 import Explore from './Components/Explore/Explore'
 import Content from './Components/Content/Content'
+import Speakers from './Components/Speaker/Speaker'
 
 
 
@@ -25,15 +26,16 @@ const App = () => {
         {currentView ==='home' && (
         <div>
       
-        <Conference onMoreInfo={()=> handleViewChange('registration')}/>
+        <Conference onMoreInfo={()=> handleViewChange('content')}/>
         <Explore/>
         <ContactForm/>
         </div>
         )}
        
-        {currentView ==='conference' && <Conference onMoreInfo={()=> handleViewChange('registration')}/>}
+        {currentView ==='conference' && <Conference onMoreInfo={()=> handleViewChange('content')}/>}
         {currentView === 'explore' && <Explore/>}
         {currentView === 'contact' && <ContactForm/>}
+        {currentView === 'content' && <Content/>}
         {currentView === 'registration' && <RegistrationForm/>}
       <Footer/>
     </div>
