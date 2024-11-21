@@ -32,7 +32,7 @@ class Content extends Component {
     return (
       <div className="content-container">
         <div className="header">
-          <h1>PFAS (Forever Chemicals) Conference 2025</h1>
+          <h1>PFAS (Forever Chemicals) HYBRID Conference 2025</h1>
         </div>
         <div className="details">
           <p>28-27 Feb 2025</p>

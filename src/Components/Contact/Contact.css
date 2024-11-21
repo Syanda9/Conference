@@ -11,7 +11,7 @@ body {
 
 .subtitle {
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
@@ -57,7 +57,7 @@ body {
 
 .contact-form {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   background: rgb(219, 219, 233);
   border-radius: 8px;
   padding: 20px;

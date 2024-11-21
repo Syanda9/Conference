@@ -219,12 +219,12 @@ const RegistrationForm = () => {
 
       {formData.paymentMethod === 'Credit/Debit Card' && formData.isFormSubmitted && (
         <div className="card-details">
-          <label>Card Number:</label>
+        {/*  <label>Card Number:</label>
           <input type="text" className="form-input" required />
           <label>Expiry Date:</label>
           <input type="month" className="form-input" required />
           <label>CVV:</label>
-          <input type="text" className="form-input" required />
+          <input type="text" className="form-input" required /> */}
           <label>Total Price:</label>
           <input
             type="number"
