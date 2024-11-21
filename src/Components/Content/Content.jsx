@@ -36,11 +36,12 @@ class Content extends Component {
         </div>
         <div className="details">
           <p>28-27 Feb 2025</p>
+          <br/>
+          <p>Indaba Hotel,Fourways</p>
           <p>Sandton, JHB.</p>
-          <p></p>
-          <p>For More Info</p>
-          <p>Tel: 0878028776</p>
-          <p>Email: admin@bizstrat.co.za</p>
+           <br/>
+          <p>+27 87 802 9998</p>
+          <p>admin@bizstrat.co.za</p>
         </div>
         <div className="tabs">
           {['Overview', 'Agenda', 'Speakers', 'Register','Sponsor'].map((tab) => (
