@@ -21,6 +21,10 @@ const App = () => {
         <Route path="contact" element={<ContactForm />} />
         <Route path="registration" element={<RegistrationForm />} />
         <Route path="content" element={<Content />} />
+        <Route path="conference/content" element={<Content/>}/>
+        <Route path="conference/content/contact" element={<ContactForm/>}/>
+        <Route path="conference/content" element={<Content/>}/>
+        <Route path="content/contact" element={<ContactForm/>}/>
     </Routes>
     <Footer/>
    </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Registration.css';
+import emailjs from 'emailjs-com';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -55,7 +56,15 @@ const RegistrationForm = () => {
     }
     return true;
   };
-
+  const sendEmail = (formData) => {
+    emailjs.send('yservice_45ornv8', 'template_ib0x3df', formData, 'yos4RhFccIHXaSTUlQg')
+      .then((response) => {
+        console.log('Email sent successfully!', response);
+      })
+      .catch((error) => {
+        console.error('Error sending email', error);
+      });
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
@@ -66,6 +75,7 @@ const RegistrationForm = () => {
     // Simulate sending the form via email (use a backend API or email service like SendGrid or Nodemailer)
     alert('Form submitted successfully!');
     setFormData({ ...formData, isFormSubmitted: true });
+    sendEmail(formData);
   };
 
   const handlePay = () => {
@@ -81,7 +91,7 @@ const RegistrationForm = () => {
           purchase_units: [
             {
               amount: {
-                value: formData.totalPrice,
+                value: formData.totalPrice + formData.totalPrice * 0.15,
               },
             },
           ],
@@ -100,6 +110,62 @@ const RegistrationForm = () => {
     <form className="registration-form" onSubmit={handleSubmit}>
       <h2>DELEGATE REGISTRATION FORM</h2>
 
+      <h4>Attendance Option</h4>
+      <label>
+        <input
+          type="radio"
+          name="attendanceOption"
+          value="Venue (R7990.00)"
+          onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
+          checked={formData.attendanceOption === 'Venue (R7990.00)'}
+        />
+        Venue (R7990.00 excl. VAT per delegate)
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="attendanceOption"
+          value="Register & pay by 25/10/24 & Pay R6990.00 excl. Vat per Delegate"
+          onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
+          checked={formData.attendanceOption === 'Register & pay by 25/10/24 & Pay R6990.00 excl. Vat per Delegate'}
+        />
+        Register & pay by 13/12/24 & Pay R6990.00 excl. Vat per Delegate 
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="attendanceOption"
+          value="Table of 5 delegates: R34950.00 Excl. VAT"
+          onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
+          checked={formData.attendanceOption === 'Table of 5 delegates: R34950.00 Excl. VAT'}
+        />
+        Table of 5 delegates: R34950.00 Excl. VAT
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="attendanceOption"
+          value="Table of 10 delegates: R59900 Excl. VAT"
+          onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
+          checked={formData.attendanceOption === 'Table of 10 delegates: R59900 Excl. VAT'}
+        />
+        Table of 10 delegates: R59900 Excl. VAT
+      </label>
+      <br/>
+      <h4>Online Option - MS TEAMS & ZOOM</h4>
+      <label>
+        <input
+          type="radio"
+          name="attendanceOption"
+          value="Online (R5490.00)"
+          onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
+          checked={formData.attendanceOption === 'Online (R5490.00)'}
+        />
+       <strong>Online Option </strong>- MST & ZOOM (R5490.00 excl. VAT per delegate)
+      </label>
+       <br/>
+       <h3>Registration</h3>
+       <br/>
       <label>Company Name:</label>
       <input type="text" className="form-input" value={formData.companyName} onChange={(e) => handleInputChange(e, null, 'companyName')} />
 
@@ -136,14 +202,14 @@ const RegistrationForm = () => {
         Add Delegate
       </button>
 
-      <h4>Attendance Option</h4>
+   {/*   <h4>Attendance Option</h4>
       <label>
         <input
           type="radio"
           name="attendanceOption"
-          value="Face-to-Face (R7990.00)"
+          value="Venue (R7990.00)"
           onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
-          checked={formData.attendanceOption === 'Face-to-Face (R7990.00)'}
+          checked={formData.attendanceOption === 'Venue (R7990.00)'}
         />
         Venue (R7990.00 excl. VAT per delegate)
       </label>
@@ -177,6 +243,8 @@ const RegistrationForm = () => {
         />
         Table of 10 delegates: R59900 Excl. VAT
       </label>
+      <br/>
+      <h4>Online Option - MS TEAMS & ZOOM</h4>
       <label>
         <input
           type="radio"
@@ -185,8 +253,8 @@ const RegistrationForm = () => {
           onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
           checked={formData.attendanceOption === 'Online (R5490.00)'}
         />
-       ,<strong>Online Option </strong>- MST & ZOOM (R5490.00 excl. VAT per delegate)
-      </label>
+       <strong>Online Option </strong>- MST & ZOOM (R5490.00 excl. VAT per delegate)
+      </label> */}
 
       <h4>Payment Method</h4>
       <label>
@@ -239,13 +307,14 @@ const RegistrationForm = () => {
           </button>
         </div>
       )}
-
+      <br/>
+      <h5 style={{color:"red"}}>IMPORTANT*</h5>
       <label>
         <input type="checkbox" checked={formData.legalAgreement} onChange={(e) => handleInputChange(e, null, 'legalAgreement')} />
         This is a legally binding document
       </label>
 
-      <button type="submit" className="submit-button">
+      <button type="submit" className="submit-button" onSubmit={handleSubmit}>
         Submit
       </button>
     </form>

@@ -21,7 +21,7 @@ const ContactForm = () => {
             <p>E-Mail: admin@bizstrat.co.za</p>
           </div>
           <div className="office-info">
-            <h2>Satellite Office</h2>
+            <h2>Pietermaritzburg Office</h2>
             <p>Servigraph 30cc t/a BizStrat</p>
             <p>CC Registration No.: 2011/049644/23</p>
             <p>VAT Registration No.: 4700259502</p>
