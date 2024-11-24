@@ -70,6 +70,9 @@
   color: #4219a0;
   cursor: pointer;
 }
+.hamburger:hover{
+   background-color: white;
+}
 
 /* Mobile styles */
 @media (max-width: 768px) {

@@ -13,7 +13,7 @@ const RegistrationForm = () => {
     attendanceOption: '',
     paymentMethod: '',
     legalAgreement: false,
-    totalPrice: '',
+    totalPrice:'',
     isFormSubmitted: false,
   });
 
@@ -56,7 +56,7 @@ const RegistrationForm = () => {
     }
     return true;
   };
-  const sendEmail = (formData) => {
+  /*const sendEmail = (formData) => {
     emailjs.send('yservice_45ornv8', 'template_ib0x3df', formData, 'yos4RhFccIHXaSTUlQg')
       .then((response) => {
         console.log('Email sent successfully!', response);
@@ -64,7 +64,33 @@ const RegistrationForm = () => {
       .catch((error) => {
         console.error('Error sending email', error);
       });
+  };*/
+  const sendEmail = (formData) => {
+    const emailParams = {
+      companyName: formData.companyName,
+      address: formData.address,
+      email: formData.email,
+      tel: formData.tel,
+      vatNumber: formData.vatNumber,
+      delegates: JSON.stringify(formData.delegates),
+      attendanceOption: formData.attendanceOption,
+      paymentMethod: formData.paymentMethod,
+      legalAgreement: formData.legalAgreement ? "Yes" : "No",
+      totalPrice: formData.totalPrice ,
+    };
+  
+    emailjs
+      .send('service_45ornv8', 'template_ib0x3df', emailParams, 's4RhFccIHXaSTUlQg')
+      .then((response) => {
+        console.log('Email sent successfully!', response);
+        alert('Your registration has been submitted successfully!');
+      })
+      .catch((error) => {
+        console.error('Error sending email', error);
+        alert('An error occurred while sending your registration. Please try again.');
+      });
   };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
@@ -73,7 +99,7 @@ const RegistrationForm = () => {
     }
 
     // Simulate sending the form via email (use a backend API or email service like SendGrid or Nodemailer)
-    alert('Form submitted successfully!');
+   // alert('Form submitted successfully!');
     setFormData({ ...formData, isFormSubmitted: true });
     sendEmail(formData);
   };
@@ -91,7 +117,7 @@ const RegistrationForm = () => {
           purchase_units: [
             {
               amount: {
-                value: formData.totalPrice + formData.totalPrice * 0.15,
+                value: (Number(formData.totalPrice) + (Number(formData.totalPrice )*0.15)),
               },
             },
           ],
@@ -275,7 +301,7 @@ const RegistrationForm = () => {
           <p>Swift Code: FIRNZAJJ</p>
         </div>
       )}
-      <label>
+ {/*     <label>
         <input
           type="radio"
           value="Credit/Debit Card"
@@ -292,8 +318,9 @@ const RegistrationForm = () => {
           <label>Expiry Date:</label>
           <input type="month" className="form-input" required />
           <label>CVV:</label>
-          <input type="text" className="form-input" required /> */}
-          <label>Total Price:</label>
+          <input type="text" className="form-input" required /> 
+          <label>Total Price: <span style={{color:"red"}}>Note 15% VAT WILL BE AUTOMATICALLY ADDED.<br/> DON'T ADD IT HERE.</span></label>
+          
           <input
             type="number"
             className="form-input"
@@ -306,7 +333,8 @@ const RegistrationForm = () => {
             Pay
           </button>
         </div>
-      )}
+      )} */}
+      <p>CREDIT CARD WILL BE AVAILABLE SOON <br/> Alternatively contact admin for assistance.</p>
       <br/>
       <h5 style={{color:"red"}}>IMPORTANT*</h5>
       <label>

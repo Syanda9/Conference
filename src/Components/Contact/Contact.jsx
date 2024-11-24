@@ -1,7 +1,32 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
 import "./Contact.css";
 
 const ContactForm = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_45ornv8", // Replace with your EmailJS service ID
+        "template_2ufcem3", // Replace with your EmailJS template ID
+        form.current,
+        "s4RhFccIHXaSTUlQg" // Replace with your EmailJS public key
+      )
+      .then(
+        (result) => {
+          console.log("Email sent successfully:", result.text);
+          alert("Message sent successfully!");
+        },
+        (error) => {
+          console.error("Error sending email:", error.text);
+          alert("Failed to send the message. Please try again.");
+        }
+      );
+  };
+
   return (
     <div className="contact-container">
       <div className="subtitle">
@@ -33,26 +58,26 @@ const ContactForm = () => {
 
         {/* Right Form */}
         <div className="form-container">
-          <form className="contact-form">
+          <form ref={form} onSubmit={sendEmail} className="contact-form">
             <div className="form-row">
               <div className="input-group">
-                <input type="text" id="fullName" placeholder="Full Name" required />
+                <input type="text" name="user_name" placeholder="Full Name" required />
               </div>
               <div className="input-group">
-                <input type="text" id="companyName" placeholder="Company Name" required />
+                <input type="text" name="company_name" placeholder="Company Name" required />
               </div>
             </div>
             <div className="form-row">
               <div className="input-group">
-                <input type="email" id="businessEmail" placeholder="Business Email" required />
+                <input type="email" name="user_email" placeholder="Business Email" required />
               </div>
               <div className="input-group">
-                <input type="tel" id="businessNumber" placeholder="Business Number" required />
+                <input type="tel" name="business_number" placeholder="Business Number" required />
               </div>
             </div>
             
             <div className="input-group">
-              <select id="interest" required>
+              <select name="interest" required>
                 <option value="" disabled selected>
                   Select Your Interest
                 </option>
@@ -64,7 +89,7 @@ const ContactForm = () => {
               </select>
             </div>
             <div className="input-group message-group">
-              <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+              <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
             </div>
             <button type="submit" className="submit-button">
               Submit
@@ -77,6 +102,7 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+
 
 
 
