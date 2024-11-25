@@ -7,7 +7,7 @@ const Conference = () => {
   const navigate = useNavigate(); // Hook for programmatic navigation
 
   const handleMoreInfo = () => {
-    navigate('Content');
+    navigate('content');
   }
   return (
     <div className="conference">
