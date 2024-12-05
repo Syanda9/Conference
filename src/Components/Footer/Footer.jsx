@@ -9,11 +9,10 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-links">
         <a href="/shop"></a>
-        <a href="/contact-us"><Link to="Contact"  smooth="true" duration={500} offset={-90}> Contact Us</Link></a>
-        <a href="/privacy-policy">Privacy Policy</a>
-        <a href="/terms-of-service">Terms & Condition</a>
-        <a href="/registration"><Link to="Registration" >Register</Link></a>
-        <a href="/track-order"><Link to="Conference" smooth="true" duration={500}>Conference</Link></a>
+        <a href="/contact-us"><Link to="contact"  smooth="true" duration={500} offset={-90}> Contact Us</Link></a>
+        <a href="/terms-of-service"><Link to="terms">Terms & Condition</Link></a>
+        <a href="/registration"><Link to="registration" >Register</Link></a>
+        <a href="/track-order"><Link to="conference" smooth="true" duration={500}>Conference</Link></a>
       </div>
       <div className="footer-copyright">
         © 2024 . BizStrat. Site Developed By <a href="https://github.com/Syanda9/"> <strong style={{color:"blue", fontFamily:"sans-serif"}}>Pholoba</strong></a>

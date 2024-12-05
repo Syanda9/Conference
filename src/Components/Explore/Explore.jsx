@@ -1,8 +1,8 @@
 import React from 'react';
 import './Explore.css';
-import image1 from '../../assets/minewater.jpeg'
-import image2 from '../../assets/quality.jpeg'
-import image3 from '../../assets/waste3.jpeg' 
+import image1 from '../../assets/minewater.jpeg';
+import image2 from '../../assets/quality.jpeg';
+import image3 from '../../assets/waste3.jpeg';
 
 class Explore extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class Explore extends React.Component {
       <div className="explore-container">
         <header className="explore-header">
           <h1 className="header-title">
-          <span className="highlight">BizStrat</span>
+            <span className="highlight">BizStrat</span>
           </h1>
           <h2 className="sub-header">Upcoming Events</h2>
         </header>
@@ -26,6 +26,7 @@ class Explore extends React.Component {
               <h3 className="card-topic">Integrated Mine Water</h3>
               <p className="card-date">Date: Feb 14-15, 2025</p>
               <p className="card-location">Location: Johannesburg</p>
+              <button className="add-info-btn"><a href="https://www.bizstrat.co.za/Integrated-Mine-Waste-Water-Management-Treatment/" target="blank" ref="noopener noreferrer">More Info</a></button>
             </div>
           </div>
 
@@ -39,6 +40,7 @@ class Explore extends React.Component {
               <h3 className="card-topic">Water Quality</h3>
               <p className="card-date">Date: Jan 11-12, 2025</p>
               <p className="card-location">Location: Johannesburg</p>
+              <button className="add-info-btn"><a href="https://www.bizstrat.co.za/Water-Quality/" target="blank" ref="noopener noreferrer">More Info</a></button>
             </div>
           </div>
 
@@ -49,15 +51,12 @@ class Explore extends React.Component {
               className="card-image"
             />
             <div className="card-content">
-              <h3 className="card-topic">Waste Water </h3>
-              <p className="card-date">Date: Jan 30-31 , 2025</p>
+              <h3 className="card-topic">Waste Water</h3>
+              <p className="card-date">Date: Jan 30-31, 2025</p>
               <p className="card-location">Location: Johannesburg</p>
+              <button className="add-info-btn"><a href="https://www.bizstrat.co.za/Waste-Water-Management/" target="blank" ref="noopener noreferrer">More Info</a></button>
             </div>
           </div>
-        </div>
-
-        <div className="learn-more-container">
-        <button className="learn-more-btn"><a href="https://www.bizstrat.co.za/events/workshops/" target="blank" ref="noopener noreferrer">Learn More</a></button>
         </div>
       </div>
     );
@@ -65,3 +64,4 @@ class Explore extends React.Component {
 }
 
 export default Explore;
+

@@ -12,6 +12,7 @@ body {
   margin-top: 85px;
 }
 
+
 .header h1 {
   font-size: 1.5rem;
   margin-bottom: 0.5em;
@@ -64,6 +65,32 @@ body {
   border-radius: 5px;
   background-color: #ffffff;
 }
+/* Style for the agenda tabs */
+.agenda-tabs {
+  display: flex;
+  gap: 10px; /* Add space between buttons */
+  margin-top: 5px; /* Add space above buttons */
+}
+
+.agenda-tabs button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Default button background color */
+  color: white; /* Button text color */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.agenda-tabs button:hover {
+  background-color: #1e90ff; /* Slightly lighter blue on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.agenda-tabs button.active-tab {
+  background-color: #1b0d68; /* Active button background color */
+  color:white; /* Active button text color for better contrast */
+}
 
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
@@ -85,6 +112,9 @@ body {
 
   .tab-content {
       padding: 15px;
+  }
+  .IMAGE{
+    display: none;
   }
 }
 
@@ -108,5 +138,8 @@ body {
 
   .tab-content {
       padding: 10px;
+  }
+  .IMAGE{
+    display: none;
   }
 }

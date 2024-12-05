@@ -21,10 +21,10 @@ const Navbar = () => {
       </button>
       <div className={`right-container ${isMenuOpen ? "open" : ""}`}>
         <ul className="nav-list">
-          <li className="nav-item"><Link to="/" smooth="true" duration={500} ><button className="bu" > Home </button></Link></li>
-          <li className="nav-item"><Link to="Conference"  smooth="true" duration={500} ><button className="bu" >Conference</button></Link></li>
-          <li className="nav-item"><Link to="Contact" smooth="true" duration={500} offset={-70} ><button className="bu">Contact</button></Link></li>
-          <li className="nav-item"><Link to="Registration" smooth="true" duration={500} offset={-150} ><button className="bu">Register</button></Link></li>
+          <li className="nav-item"><Link to="/" ><button className="bu" > Home </button></Link></li>
+          <li className="nav-item"><Link to="conference"  ><button className="bu" >Conference</button></Link></li>
+          <li className="nav-item"><Link to="contact"  ><button className="bu">Contact</button></Link></li>
+          <li className="nav-item"><Link to="registration" ><button className="bu">Register</button></Link></li>
         </ul>
       </div>
     </nav>

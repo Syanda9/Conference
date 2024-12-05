@@ -6,7 +6,7 @@ const Sponsor = () => {
   const navigate = useNavigate(); // Hook for programmatic navigation
 
   const handleMoreInfo = () => {
-    navigate('Contact');
+    navigate('contact');
   }
   const packages = [
     {

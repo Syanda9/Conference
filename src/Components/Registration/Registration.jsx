@@ -64,8 +64,8 @@ const RegistrationForm = () => {
       .catch((error) => {
         console.error('Error sending email', error);
       });
-  };*/
-  const sendEmail = (formData) => {
+  }; */
+   /*const sendEmail = (formData) => {
     const emailParams = {
       companyName: formData.companyName,
       address: formData.address,
@@ -77,9 +77,34 @@ const RegistrationForm = () => {
       paymentMethod: formData.paymentMethod,
       legalAgreement: formData.legalAgreement ? "Yes" : "No",
       totalPrice: formData.totalPrice ,
+    }; */
+    
+    const sendEmail = (formData) => {
+      fetch('http://localhost:3001/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Failed to send email.');
+        })
+        .then((data) => {
+          alert(data.message || 'Email sent successfully!');
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('An error occurred while sending your registration. Please try again.');
+        });
     };
-  
-    emailjs
+    
+    
+
+  /*  emailjs
       .send('service_45ornv8', 'template_ib0x3df', emailParams, 's4RhFccIHXaSTUlQg')
       .then((response) => {
         console.log('Email sent successfully!', response);
@@ -89,7 +114,7 @@ const RegistrationForm = () => {
         console.error('Error sending email', error);
         alert('An error occurred while sending your registration. Please try again.');
       });
-  };
+  }; */
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -227,60 +252,6 @@ const RegistrationForm = () => {
       <button type="button" className="add-delegate-button" onClick={addDelegate}>
         Add Delegate
       </button>
-
-   {/*   <h4>Attendance Option</h4>
-      <label>
-        <input
-          type="radio"
-          name="attendanceOption"
-          value="Venue (R7990.00)"
-          onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
-          checked={formData.attendanceOption === 'Venue (R7990.00)'}
-        />
-        Venue (R7990.00 excl. VAT per delegate)
-      </label>
-      <label>
-        <input
-          type="radio"
-          name="attendanceOption"
-          value="Register & pay by 25/10/24 & Pay R6990.00 excl. Vat per Delegate"
-          onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
-          checked={formData.attendanceOption === 'Register & pay by 25/10/24 & Pay R6990.00 excl. Vat per Delegate'}
-        />
-        Register & pay by 13/12/24 & Pay R6990.00 excl. Vat per Delegate 
-      </label>
-      <label>
-        <input
-          type="radio"
-          name="attendanceOption"
-          value="Table of 5 delegates: R34950.00 Excl. VAT"
-          onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
-          checked={formData.attendanceOption === 'Table of 5 delegates: R34950.00 Excl. VAT'}
-        />
-        Table of 5 delegates: R34950.00 Excl. VAT
-      </label>
-      <label>
-        <input
-          type="radio"
-          name="attendanceOption"
-          value="Table of 10 delegates: R59900 Excl. VAT"
-          onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
-          checked={formData.attendanceOption === 'Table of 10 delegates: R59900 Excl. VAT'}
-        />
-        Table of 10 delegates: R59900 Excl. VAT
-      </label>
-      <br/>
-      <h4>Online Option - MS TEAMS & ZOOM</h4>
-      <label>
-        <input
-          type="radio"
-          name="attendanceOption"
-          value="Online (R5490.00)"
-          onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
-          checked={formData.attendanceOption === 'Online (R5490.00)'}
-        />
-       <strong>Online Option </strong>- MST & ZOOM (R5490.00 excl. VAT per delegate)
-      </label> */}
 
       <h4>Payment Method</h4>
       <label>

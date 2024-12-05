@@ -8,6 +8,7 @@ import Conference from './Components/Conference/Conference';
 import Explore from './Components/Explore/Explore';
 import Content from './Components/Content/Content';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
+import Terms from './Components/Terms/Terms';
 
 const App = () => {
   return (
@@ -16,18 +17,20 @@ const App = () => {
     <Navbar/>
     <Routes>
     <Route path="/" element={<div><Conference /><Explore /><ContactForm /></div>} />
-        <Route path="Conference" element={<Conference />} />
-        <Route path="Explore" element={<Explore />} />
-        <Route path="Contact" element={<ContactForm />} />
-        <Route path="Registration" element={<RegistrationForm />} />
-        <Route path="Content" element={<Content />} />
-        <Route path="Conference/Content" element={<Content/>}/>
-        <Route path="Conference/Content/contact" element={<ContactForm/>}/>
-        <Route path="Conference/Content" element={<Content/>}/>
-        <Route path="Content/Contact" element={<ContactForm/>}/>
-    </Routes>
+        <Route path="conference" element={<Conference />} />
+        <Route path="explore" element={<Explore />} />
+        <Route path="contact" element={<ContactForm />} />
+        <Route path="registration" element={<RegistrationForm />} />
+        <Route path="content" element={<Content />} />
+        <Route path="conference/content" element={<Content/>}/>
+        <Route path="conference/content/contact" element={<ContactForm/>}/>
+        <Route path="conference/content" element={<Content/>}/>
+        <Route path="content/contact" element={<ContactForm/>}/>
+        <Route path="terms" element={<Terms/>}/>
+        </Routes>
     <Footer/>
-   </div>
+    </div>
+   
   );
 };
 

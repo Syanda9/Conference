@@ -1,0 +1,31 @@
+.terms-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 60px;
+  }
+  
+  .terms-container h2 {
+    color: #31619c;
+    margin-bottom: 20px;
+  }
+  
+  .terms-container h3 {
+    color: #555;
+    margin-top: 20px;
+  }
+  
+  .terms-container ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .terms-container ul li {
+    margin-bottom: 10px;
+  }
+  
+  .terms-container p {
+    margin-bottom: 20px;
+  }
+  
