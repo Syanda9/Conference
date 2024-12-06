@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import './Registration.css';
 import emailjs from 'emailjs-com';
+import axios from 'axios'
+import io from 'socket.io-client';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
@@ -65,7 +67,7 @@ const RegistrationForm = () => {
         console.error('Error sending email', error);
       });
   }; */
-   /*const sendEmail = (formData) => {
+  const sendEmail = (formData) => {
     const emailParams = {
       companyName: formData.companyName,
       address: formData.address,
@@ -77,34 +79,10 @@ const RegistrationForm = () => {
       paymentMethod: formData.paymentMethod,
       legalAgreement: formData.legalAgreement ? "Yes" : "No",
       totalPrice: formData.totalPrice ,
-    }; */
+    }; 
+  
     
-    const sendEmail = (formData) => {
-      fetch('http://localhost:3001/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw new Error('Failed to send email.');
-        })
-        .then((data) => {
-          alert(data.message || 'Email sent successfully!');
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-          alert('An error occurred while sending your registration. Please try again.');
-        });
-    };
-    
-    
-
-  /*  emailjs
+   emailjs
       .send('service_45ornv8', 'template_ib0x3df', emailParams, 's4RhFccIHXaSTUlQg')
       .then((response) => {
         console.log('Email sent successfully!', response);
@@ -114,7 +92,7 @@ const RegistrationForm = () => {
         console.error('Error sending email', error);
         alert('An error occurred while sending your registration. Please try again.');
       });
-  }; */
+  }; 
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -129,34 +107,43 @@ const RegistrationForm = () => {
     sendEmail(formData);
   };
 
-  const handlePay = () => {
-    if (!formData.totalPrice) {
-      alert('Please enter the total price before proceeding.');
-      return;
-    }
-
-    // Use PayPal SDK to process the payment
-    window.paypal.Buttons({
-      createOrder: (data, actions) => {
-        return actions.order.create({
-          purchase_units: [
-            {
-              amount: {
-                value: (Number(formData.totalPrice) + (Number(formData.totalPrice )*0.15)),
-              },
-            },
-          ],
-        });
+  const handleYocoPay = () => {
+    const yoco = new window.YocoSDK({
+      publicKey: 'pk_test_806e7970GN78mBK21594', // Replace with your Yoco public key
+    });
+  
+    yoco.showPopup({
+      amountInCents: Math.round(formData.totalPrice * 100 + formData.totalPrice * 100 * 0.15), // Add 15% VAT
+      currency: 'ZAR',
+      callback: async (result) => {
+        if (result.error) {
+          alert('Payment failed: ' + result.error.message);
+        } else {
+          alert('Payment successful! Token: ' + result.id);
+  
+          // Send the token to your backend for further processing
+          try {
+            const response = await axios.post('http://localhost:5000/api/payment/create', {
+              token: result.id,
+              amount: Math.round(formData.totalPrice * 100 + formData.totalPrice * 100 * 0.15),
+              currency: 'ZAR',
+              description: 'Conference Registration',
+            });
+  
+            if (response.data.success) {
+              alert('Payment processed successfully on the server!');
+            } else {
+              alert('Payment processing failed on the server.');
+            }
+          } catch (error) {
+            console.error('Error sending payment data to the backend:',error);
+            alert('An error occurred while processing your payment. Please try again.');
+          }
+        }
       },
-      onApprove: (data, actions) => {
-        return actions.order.capture().then((details) => {
-          alert(`Payment successful! Transaction completed by ${details.payer.name.given_name}.`);
-          // Generate and send invoice to both emails
-        });
-      },
-    }).render('#paypal-button-container');
+    });
   };
-
+  
   return (
     <form className="registration-form" onSubmit={handleSubmit}>
       <h2>DELEGATE REGISTRATION FORM</h2>
@@ -272,7 +259,7 @@ const RegistrationForm = () => {
           <p>Swift Code: FIRNZAJJ</p>
         </div>
       )}
- {/*     <label>
+      <label>
         <input
           type="radio"
           value="Credit/Debit Card"
@@ -284,12 +271,12 @@ const RegistrationForm = () => {
 
       {formData.paymentMethod === 'Credit/Debit Card' && formData.isFormSubmitted && (
         <div className="card-details">
-        {/*  <label>Card Number:</label>
+         {/* <label>Card Number:</label>
           <input type="text" className="form-input" required />
           <label>Expiry Date:</label>
           <input type="month" className="form-input" required />
           <label>CVV:</label>
-          <input type="text" className="form-input" required /> 
+          <input type="text" className="form-input" required /> */}
           <label>Total Price: <span style={{color:"red"}}>Note 15% VAT WILL BE AUTOMATICALLY ADDED.<br/> DON'T ADD IT HERE.</span></label>
           
           <input
@@ -299,14 +286,12 @@ const RegistrationForm = () => {
             onChange={(e) => handleInputChange(e, null, 'totalPrice')}
             required
           />
-          <div id="paypal-button-container"></div>
-          <button type="button" className="pay-button" onClick={handlePay}>
-            Pay
+          <div id="yoco-button-container"></div>
+          <button type="button" className="pay-button" onClick={handleYocoPay}>
+          Pay with Yoco
           </button>
         </div>
-      )} */}
-      <p>CREDIT CARD WILL BE AVAILABLE SOON <br/> Alternatively contact admin for assistance.</p>
-      <br/>
+      )} 
       <h5 style={{color:"red"}}>IMPORTANT*</h5>
       <label>
         <input type="checkbox" checked={formData.legalAgreement} onChange={(e) => handleInputChange(e, null, 'legalAgreement')} />
@@ -321,5 +306,7 @@ const RegistrationForm = () => {
 };
 
 export default RegistrationForm;
+
+
 
 

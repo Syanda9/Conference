@@ -75,8 +75,7 @@ class Content extends Component {
               <li>Risk assessment and exposure limits for PFAS in African contexts.</li>
               <li>Reducing Harm from PFAS: Research, Policy, & Persistence.</li>
             </ul>
-            <p><strong>14:00: Panel Discussion: </strong>Moderated by: <span style={{color:'blue'}}>Benoît Le Roy</span>, Chief Executive Officer: Water Ledger South Africa (Pty) Ltd</p>
-            <p>Water Crisis and PFAS Relevance</p>
+           <p><strong>14:00: Panel Discussion: </strong> Water Crisis and PFAS Relevance</p>
             <strong><p>15:00: Closing Remarks by Chair and End of Conference</p></strong>
         </div>
       ),
