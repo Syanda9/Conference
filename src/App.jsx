@@ -9,6 +9,8 @@ import Explore from './Components/Explore/Explore';
 import Content from './Components/Content/Content';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import Terms from './Components/Terms/Terms';
+import WebhookRegistration from './Components/Webhook/Webhook';
+import List from './Components/listWebhook/listWebhook';
 
 const App = () => {
   return (

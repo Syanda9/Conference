@@ -1,11 +1,10 @@
 import React, { useState, useEffect} from 'react';
 import './Registration.css';
-import emailjs from 'emailjs-com';
-import axios from 'axios'
 import io from 'socket.io-client';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
+    code:'',
     companyName: '',
     address: '',
     email: '',
@@ -34,11 +33,24 @@ const RegistrationForm = () => {
   };
 
   const addDelegate = () => {
+    const maxDelegates =
+      formData.attendanceOption === 'Table of 5 delegates: R34950.00 Excl. VAT'
+        ? 5
+        : formData.attendanceOption === 'Table of 10 delegates: R59900 Excl. VAT'
+        ? 10
+        : Infinity;
+  
+    if (formData.delegates.length >= maxDelegates) {
+      alert(`You can only add up to ${maxDelegates} delegates for this option.`);
+      return;
+    }
+  
     setFormData({
       ...formData,
       delegates: [...formData.delegates, { name: '', position: '', email: '' }],
     });
   };
+  
 
   const deleteDelegate = (index) => {
     const updatedDelegates = [...formData.delegates];
@@ -58,41 +70,30 @@ const RegistrationForm = () => {
     }
     return true;
   };
-  /*const sendEmail = (formData) => {
-    emailjs.send('yservice_45ornv8', 'template_ib0x3df', formData, 'yos4RhFccIHXaSTUlQg')
-      .then((response) => {
-        console.log('Email sent successfully!', response);
-      })
-      .catch((error) => {
-        console.error('Error sending email', error);
-      });
-  }; */
+
   const sendEmail = (formData) => {
-    const emailParams = {
-      companyName: formData.companyName,
-      address: formData.address,
-      email: formData.email,
-      tel: formData.tel,
-      vatNumber: formData.vatNumber,
-      delegates: JSON.stringify(formData.delegates),
-      attendanceOption: formData.attendanceOption,
-      paymentMethod: formData.paymentMethod,
-      legalAgreement: formData.legalAgreement ? "Yes" : "No",
-      totalPrice: formData.totalPrice ,
-    }; 
-  
-    
-   emailjs
-      .send('service_45ornv8', 'template_ib0x3df', emailParams, 's4RhFccIHXaSTUlQg')
+    fetch('https://pfas-africa.bizstrat.co.za/backend/sendEmail.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
       .then((response) => {
-        console.log('Email sent successfully!', response);
-        alert('Your registration has been submitted successfully!');
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Failed to send email.');
+      })
+      .then((data) => {
+        alert(data.message || 'Email sent successfully!');
       })
       .catch((error) => {
-        console.error('Error sending email', error);
+        console.error('Error:', error);
         alert('An error occurred while sending your registration. Please try again.');
       });
-  }; 
+  };
+  
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -102,53 +103,105 @@ const RegistrationForm = () => {
     }
 
     // Simulate sending the form via email (use a backend API or email service like SendGrid or Nodemailer)
-   // alert('Form submitted successfully!');
+    alert('Submitting!');
     setFormData({ ...formData, isFormSubmitted: true });
     sendEmail(formData);
   };
 
-  const handleYocoPay = () => {
-    const yoco = new window.YocoSDK({
-      publicKey: 'pk_test_806e7970GN78mBK21594', // Replace with your Yoco public key
-    });
-  
-    yoco.showPopup({
-      amountInCents: Math.round(formData.totalPrice * 100 + formData.totalPrice * 100 * 0.15), // Add 15% VAT
-      currency: 'ZAR',
-      callback: async (result) => {
-        if (result.error) {
-          alert('Payment failed: ' + result.error.message);
+  const handleYocoPay = async () => {
+    // Send amount and currency to the backend to create the checkout and get the redirect URL
+    try {
+        const response = await fetch('https://pfas-africa.bizstrat.co.za/backend/payment.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                amount: Math.round(formData.totalPrice * 100), // Amount in cents
+                currency: 'ZAR',
+            }),
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            // Redirect the client to the generated Yoco checkout page
+            window.location.href = data.redirectUrl;
         } else {
-          alert('Payment successful! Token: ' + result.id);
-  
-          // Send the token to your backend for further processing
-          try {
-            const response = await axios.post('http://localhost:5000/api/payment/create', {
-              token: result.id,
-              amount: Math.round(formData.totalPrice * 100 + formData.totalPrice * 100 * 0.15),
-              currency: 'ZAR',
-              description: 'Conference Registration',
-            });
-  
-            if (response.data.success) {
-              alert('Payment processed successfully on the server!');
-            } else {
-              alert('Payment processing failed on the server.');
-            }
-          } catch (error) {
-            console.error('Error sending payment data to the backend:',error);
-            alert('An error occurred while processing your payment. Please try again.');
-          }
+            alert('Failed to generate redirect URL: ' + data.message);
         }
-      },
-    });
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while processing your request. Please try again.');
+    }
+};
+
+  const calculateTotalPrice = () => {
+    let basePrice = 0;
+  
+    switch (formData.attendanceOption) {
+      case 'Venue (R7990.00)':
+        basePrice = 7990 * formData.delegates.length; // Multiply by number of delegates
+        break;
+      case 'Register & pay by 13/12/24 & Pay R6990.00 excl. Vat per Delegate':
+        basePrice = 6990 * formData.delegates.length; // Multiply by number of delegates
+        break;
+      case 'Table of 5 delegates: R34950.00 Excl. VAT':
+        basePrice = 34950; // Fixed price for 5 delegates
+        break;
+      case 'Table of 10 delegates: R59900 Excl. VAT':
+        basePrice = 59900; // Fixed price for 10 delegates
+        break;
+      case 'Online (R5490.00)':
+        basePrice = 5490 * formData.delegates.length; // Multiply by number of delegates
+        break;
+      default:
+        basePrice = 0;
+    }
+  
+    // Add 15% VAT
+    const totalWithVAT = basePrice * 1.15;
+  
+    // Update the state
+    setFormData((prevData) => ({ ...prevData, totalPrice: totalWithVAT.toFixed(2) }));
   };
+  
+  
+  // Trigger the calculation whenever the attendance option or number of delegates changes
+  useEffect(() => {
+    const maxDelegates =
+      formData.attendanceOption === 'Table of 5 delegates: R34950.00 Excl. VAT'
+        ? 5
+        : formData.attendanceOption === 'Table of 10 delegates: R59900 Excl. VAT'
+        ? 10
+        : Infinity;
+  
+    if (formData.delegates.length > maxDelegates) {
+      const trimmedDelegates = formData.delegates.slice(0, maxDelegates);
+      setFormData((prevData) => ({ ...prevData, delegates: trimmedDelegates }));
+    }
+  
+    calculateTotalPrice(); // Ensure the price is recalculated
+  }, [formData.attendanceOption, formData.delegates.length]);
+  
+  
+  
   
   return (
     <form className="registration-form" onSubmit={handleSubmit}>
-      <h2>DELEGATE REGISTRATION FORM</h2>
+      <h2>PFAS DELEGATE REGISTRATION FORM</h2>
 
-      <h4>Attendance Option</h4>
+     <h4>Attendance Option</h4>
+   {/*  <label>
+        <input
+          type="radio"
+          name="attendanceOption"
+          value="test (R5)"
+          onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
+          checked={formData.attendanceOption === 'test (R5)'}
+        />
+        test (R5)
+      </label> */}
       <label>
         <input
           type="radio"
@@ -163,9 +216,9 @@ const RegistrationForm = () => {
         <input
           type="radio"
           name="attendanceOption"
-          value="Register & pay by 25/10/24 & Pay R6990.00 excl. Vat per Delegate"
+          value="Register & pay by 13/12/24 & Pay R6990.00 excl. Vat per Delegate"
           onChange={(e) => handleInputChange(e, null, 'attendanceOption')}
-          checked={formData.attendanceOption === 'Register & pay by 25/10/24 & Pay R6990.00 excl. Vat per Delegate'}
+          checked={formData.attendanceOption === 'Register & pay by 13/12/24 & Pay R6990.00 excl. Vat per Delegate'}
         />
         Register & pay by 13/12/24 & Pay R6990.00 excl. Vat per Delegate 
       </label>
@@ -201,8 +254,11 @@ const RegistrationForm = () => {
         />
        <strong>Online Option </strong>- MST & ZOOM (R5490.00 excl. VAT per delegate)
       </label>
+      <br/>
+      <label><strong style={{color:"red"}}>CONFERENCE CODE:*</strong></label>
+      <input type='text' className='form-input'value={formData.code} onChange={(e)=> handleInputChange(e, null, 'code')} style={{minWidthwidth:'30%', maxWidth:'50%'}}/>
        <br/>
-       <h3>Registration</h3>
+       <h3>REGISTRATION</h3>
        <br/>
       <label>Company Name:</label>
       <input type="text" className="form-input" value={formData.companyName} onChange={(e) => handleInputChange(e, null, 'companyName')} />
@@ -252,6 +308,14 @@ const RegistrationForm = () => {
       </label>
       {formData.paymentMethod === 'Bank Transfer' && (
         <div className="bank-details">
+          <label>Total Price (incl. 15% VAT):</label>
+          <input
+            type="text"
+            className="form-input"
+            value={`R ${formData.totalPrice}`}
+            readOnly
+            style={{minWidth:'30%', maxWidth:'50%'}}
+          />
           <p>Bank: First National Bank</p>
           <p>Branch Name: Randburg Commercial Suite</p>
           <p>Account No: 62322454422</p>
@@ -266,10 +330,10 @@ const RegistrationForm = () => {
           checked={formData.paymentMethod === 'Credit/Debit Card'}
           onChange={(e) => handleInputChange(e, null, 'paymentMethod')}
         />
-        Credit/Debit Card - Submit Form First
+        Credit/Debit Card / EFT / GPay - <span style={{color:"red"}}>Submit Form First</span> 
       </label>
 
-      {formData.paymentMethod === 'Credit/Debit Card' && formData.isFormSubmitted && (
+      {formData.paymentMethod === 'Credit/Debit Card' &&  (
         <div className="card-details">
          {/* <label>Card Number:</label>
           <input type="text" className="form-input" required />
@@ -277,25 +341,25 @@ const RegistrationForm = () => {
           <input type="month" className="form-input" required />
           <label>CVV:</label>
           <input type="text" className="form-input" required /> */}
-          <label>Total Price: <span style={{color:"red"}}>Note 15% VAT WILL BE AUTOMATICALLY ADDED.<br/> DON'T ADD IT HERE.</span></label>
-          
+          <label>Total Price (incl. 15% VAT):</label>
           <input
-            type="number"
+            type="text"
             className="form-input"
-            value={formData.totalPrice}
-            onChange={(e) => handleInputChange(e, null, 'totalPrice')}
-            required
+            value={`R ${formData.totalPrice}`}
+            readOnly
+            style={{minWidth:'30%', maxWidth:'50%'}}
           />
+
           <div id="yoco-button-container"></div>
           <button type="button" className="pay-button" onClick={handleYocoPay}>
-          Pay with Yoco
+          Pay
           </button>
         </div>
       )} 
       <h5 style={{color:"red"}}>IMPORTANT*</h5>
       <label>
         <input type="checkbox" checked={formData.legalAgreement} onChange={(e) => handleInputChange(e, null, 'legalAgreement')} />
-        This is a legally binding document
+        This is a legally binding document. This is subject to terms and conditions.
       </label>
 
       <button type="submit" className="submit-button" onSubmit={handleSubmit}>
@@ -306,6 +370,8 @@ const RegistrationForm = () => {
 };
 
 export default RegistrationForm;
+
+
 
 
 
