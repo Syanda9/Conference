@@ -1,5 +1,19 @@
+import React from 'react'
+
+const not =()=>{
+
+
+    return(
+
+
+        <div>
+
+        </div>
+    )
+}
 {/*
-//Payments
+/
+/Payments
 <?php
 header('Content-Type: application/json');
 
