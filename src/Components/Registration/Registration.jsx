@@ -59,8 +59,8 @@ const RegistrationForm = () => {
   };
 
   const validateForm = () => {
-    const { companyName, address, email, tel, vatNumber, delegates, attendanceOption, paymentMethod, legalAgreement } = formData;
-    if (!companyName || !address || !email || !tel || !vatNumber || !attendanceOption || !paymentMethod || !legalAgreement) {
+    const {code, companyName, address, email, tel, vatNumber, delegates, attendanceOption, paymentMethod, legalAgreement } = formData;
+    if (!code || !companyName || !address || !email || !tel || !vatNumber || !attendanceOption || !paymentMethod || !legalAgreement) {
       return false;
     }
     for (const delegate of delegates) {

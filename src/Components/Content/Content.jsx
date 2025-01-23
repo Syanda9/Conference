@@ -147,7 +147,7 @@ class Content extends Component {
           <h1>PFAS (Forever Chemicals) HYBRID Conference 2025</h1>
         </div>
         <div className="details">
-          <p>28-29 Feb 2025</p>
+          <p>27-28 Feb 2025</p>
           <br />
           <p>Indaba Hotel, Fourways</p>
           <p>Sandton, JHB.</p>
