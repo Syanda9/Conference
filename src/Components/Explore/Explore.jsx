@@ -38,7 +38,7 @@ class Explore extends React.Component {
             />
             <div className="card-content">
               <h3 className="card-topic">Water Quality</h3>
-              <p className="card-date">Date: Jan 11-12, 2025</p>
+              <p className="card-date">Date: Feb 11-12, 2025</p>
               <p className="card-location">Location: Johannesburg</p>
               <button className="add-info-btn"><a href="https://www.bizstrat.co.za/Water-Quality/" target="blank" ref="noopener noreferrer">More Info</a></button>
             </div>

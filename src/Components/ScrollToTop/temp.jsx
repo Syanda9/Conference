@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+{/*import React, { Component } from 'react';
 import './Content.css';
 import { scroller } from 'react-scroll';
 import RegistrationForms from '../Registration/Registration';
 import Speakers from '../Speaker/Speaker';
 import SponsorshipPackages from '../Sponsor/Sponsor';
-import image1 from '../../assets/istockphoto-PFAS.jpg';
+import image1 from '../../assets/istockphoto-PFAS.jpg'
 
 class Content extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class Content extends Component {
 
     // Agenda content for each day
     const agendaContent = {
-        'Day 1': (
+      'Day 1': (
         <div style={{lineHeight:'20px', fontWeight:'500px'}}>
           <h3>Day 1 Agenda</h3>
             <p>07:30-08:30: Registration, Early Morning Tea, Coffee</p><br/> 
@@ -100,51 +100,52 @@ Environmental Chemistry, TUT, Pretoria</p>
           
            <br/><strong><p style={{color:'blue'}}>16:15: Closing Remarks by Chair and End of Day 1</p></strong>
         </div>
-        ),
-        'Day 2': (
-            <div style={{lineHeight:'25px'}}>
-            <h3>Day 2 Agenda</h3>
-            
-              <p>07:30-08:30: Registration, Early Morning Tea, Coffee</p>
-             <br/><p>08:30: Welcome Back Remarks by Chair:<span style={{color:'blue'}}> Benoit Le Roy</span></p>
-             <br/><p>08:35:<span style={{color:'blue'}}>Keynote Address:</span> PFAS in Concerns in Water Supplies</p>
-              <p style={{marginLeft:'28px'}}>PFAS (Per- and polyfluoroalkyl substances) contamination in water supplies is a 
-  growing concern globally, including in South Africa. These "forever chemicals" 
-  are highly persistent in the environment and can pose significant health risks.
-  Addressing PFAS contamination is challenging due to the complexity and 
-  persistence of these chemicals. Treatment technologies such as adsorption, 
-  advanced oxidation, and granular activated carbon are being explored to remove 
-  PFAS from water supplies.</p>
-  <p style={{color:'blue', marginLeft:'26px'}}>Solomon Makate, Director, Drinking Water Regulation, DWS</p>
-  
-              <br/><p>09:20: PANEL DISCUSSION:</p>
-              <p style={{marginLeft:'28px'}}>Led By <span style={{color:'blue'}}>Benoit Le Roy</span></p>
-              <p style={{marginLeft:'28px'}}>CoCT and GP reuse plans, progress and PFAS mitigation strategies</p>
-            <p style={{marginLeft:'28px'}}>Contamination pathways in Water systems & Food Sources.</p>
-           <p style={{marginLeft:'28px'}}> Panellists:<span style={{color:'blue'}} >Leonardus Manus, Gary Brown</span></p>
-              <br/><p style={{color:'blue', fontWeight:'bold'}}>10:00: Refreshment Break</p>
-             <br/><p >10:30 CASE STUDY: coct-Re-use from Faure New Water scheme & PFAS Management</p>
-              <p style={{marginLeft:'28px'}}>Reserved for the CoCT:<span style={{color:'blue'}}>Leonardus Manus</span></p>
-              <br/><p>11:15: Regulating PFAS in Cosmetics: Balancing Public Health Protection and Industry</p>
-              <p>Innovation:</p>
-              <p style={{color:'blue',marginLeft:'26px'}}>Dr Gerhard Verdoorn</p>
-              <br/><p>12:00 PANEL DISCUSSION: Toxicology of PFAS</p>
-              <p style={{marginLeft:'26px'}}>Led By <span style={{color:'blue'}}> Anna, UnPoison </span></p>
-              <br/><strong><p style={{color:'blue'}}>13:00 Lunch & Networking</p></strong>
-              <br/><p style={{lineHeight:'25px'}}>14:00 Health Impacts of PFAS Exposure: Speaker invited from the DFFE</p>
-              <ul style={{marginLeft:'46px'}}>
-              <li>Health risks associated with PFAS, including cancer, immune system impacts, and hormonal disruption.</li>
-              <li>Vulnerable populations in Africa and Health equity concerns.</li>
-              <li>Risk assessment and exposure limits for PFAS in African contexts.</li>
-              <li>Reducing Harm from PFAS: Research, Policy & Persistence.</li>
-              </ul>
-              <p>14:40 PFAS-free alternatives in manufacturing, firefighting, and textiles.</p>
-            
-                <li>Corporate responsibility and sustainable business practices </li>
-  <br/><strong><p>15:15: Closing Remarks by Chair and End of Conference</p></strong>
-          </div>
-        ),
-      };
+      ),
+      
+      'Day 2': (
+        <div style={{lineHeight:'25px'}}>
+          <h3>Day 2 Agenda</h3>
+          
+            <p>07:30-08:30: Registration, Early Morning Tea, Coffee</p>
+           <br/><p>08:30: Welcome Back Remarks by Chair:<span style={{color:'blue'}}> Benoit Le Roy</span></p>
+           <br/><p>08:35:<span style={{color:'blue'}}>Keynote Address:</span> PFAS in Concerns in Water Supplies</p>
+            <p style={{marginLeft:'28px'}}>PFAS (Per- and polyfluoroalkyl substances) contamination in water supplies is a 
+growing concern globally, including in South Africa. These "forever chemicals" 
+are highly persistent in the environment and can pose significant health risks.
+Addressing PFAS contamination is challenging due to the complexity and 
+persistence of these chemicals. Treatment technologies such as adsorption, 
+advanced oxidation, and granular activated carbon are being explored to remove 
+PFAS from water supplies.</p>
+<p style={{color:'blue', marginLeft:'26px'}}>Solomon Makate, Director, Drinking Water Regulation, DWS</p>
+
+            <br/><p>09:20: PANEL DISCUSSION:</p>
+            <p style={{marginLeft:'28px'}}>Led By <span style={{color:'blue'}}>Benoit Le Roy</span></p>
+            <p style={{marginLeft:'28px'}}>CoCT and GP reuse plans, progress and PFAS mitigation strategies</p>
+          <p style={{marginLeft:'28px'}}>Contamination pathways in Water systems & Food Sources.</p>
+         <p style={{marginLeft:'28px'}}> Panellists:<span style={{color:'blue'}} >Leonardus Manus, Gary Brown</span></p>
+            <br/><p style={{color:'blue', fontWeight:'bold'}}>10:00: Refreshment Break</p>
+           <br/><p >10:30 CASE STUDY: coct-Re-use from Faure New Water scheme & PFAS Management</p>
+            <p style={{marginLeft:'28px'}}>Reserved for the CoCT:<span style={{color:'blue'}}>Leonardus Manus</span></p>
+            <br/><p>11:15: Regulating PFAS in Cosmetics: Balancing Public Health Protection and Industry</p>
+            <p>Innovation:</p>
+            <p style={{color:'blue',marginLeft:'26px'}}>Dr Gerhard Verdoorn</p>
+            <br/><p>12:00 PANEL DISCUSSION: Toxicology of PFAS</p>
+            <p style={{marginLeft:'26px'}}>Led By <span style={{color:'blue'}}> Anna, UnPoison </span></p>
+            <br/><strong><p style={{color:'blue'}}>13:00 Lunch & Networking</p></strong>
+            <br/><p style={{lineHeight:'25px'}}>14:00 Health Impacts of PFAS Exposure: Speaker invited from the DFFE</p>
+            <ul style={{marginLeft:'46px'}}>
+            <li>Health risks associated with PFAS, including cancer, immune system impacts, and hormonal disruption.</li>
+            <li>Vulnerable populations in Africa and Health equity concerns.</li>
+            <li>Risk assessment and exposure limits for PFAS in African contexts.</li>
+            <li>Reducing Harm from PFAS: Research, Policy & Persistence.</li>
+            </ul>
+            <p>14:40 PFAS-free alternatives in manufacturing, firefighting, and textiles.</p>
+            <ul></ul> style={{marginLeft:'46px'}}
+              <li>• Corporate responsibility and sustainable business practices </li>
+<br/><strong><p>15:15: Closing Remarks by Chair and End of Conference</p></strong>
+        </div>
+      ),
+    };
 
     // Content for each main tab
     const content = {
@@ -204,8 +205,7 @@ Environmental Chemistry, TUT, Pretoria</p>
           <div className="agenda-content">{agendaContent[activeAgendaTab]}</div>
         </div>
       ),
-
-      Speaker: <Speakers />,
+      Speakers: <Speakers/>,
       Register: <RegistrationForms />,
       Sponsor: <SponsorshipPackages />,
     };
@@ -231,9 +231,9 @@ Environmental Chemistry, TUT, Pretoria</p>
           <br />
           <p>+27 87 802 9998</p>
           <p>admin@bizstrat.co.za</p>
-        </div> */}
+        </div> */} {/*
         <div className="tabs">
-          {['Overview', 'Agenda', 'Speaker', 'Register', 'Sponsor'].map((tab) => (
+          {['Overview', 'Agenda', 'Speakers', 'Register', 'Sponsor'].map((tab) => (
             <button
               key={tab}
               className={activeTab === tab ? 'active-tab' : ''}
@@ -249,4 +249,4 @@ Environmental Chemistry, TUT, Pretoria</p>
   }
 }
 
-export default Content; 
+export default Content; */}

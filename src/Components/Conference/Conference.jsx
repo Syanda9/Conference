@@ -8,7 +8,7 @@ const Conference = () => {
 
   const handleMoreInfo = () => {
     navigate('content');
-  }
+  } 
   return (
     <div className="conference">
       <div className="conference-text">
@@ -22,23 +22,19 @@ const Conference = () => {
           <p>INDABA CONFERENCE CENTRE</p>
           <p>FOURWAYS, SANDTON</p>
           <p>
-            <strong>Date:</strong> 27-28 February 2025
+            <strong>Date:</strong> 21-22 May 2025
           </p>
           <p>
             <strong>Location:</strong> Johannesburg
           </p>
-        </div>
-        <button className="upcoming-events" onClick={handleMoreInfo}>
-          More Info
-        </button>
       </div>
+ {/*  <button className="upcoming-events" onClick={handleMoreInfo}>
+          More Info
+        </button> */}
+      </div> 
     </div>
   );
+
 };
 
 export default Conference;
-
-
-
-  
-

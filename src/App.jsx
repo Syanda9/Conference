@@ -11,25 +11,18 @@ import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import Terms from './Components/Terms/Terms';
 import WebhookRegistration from './Components/Webhook/Webhook';
 import List from './Components/listWebhook/listWebhook';
+import Speakers from './Components/Speaker/Speaker';
 
 const App = () => {
   return (
     <div>
       <ScrollToTop/>
-    <Navbar/>
-    <Routes>
-    <Route path="/" element={<div><Conference /><Explore /><ContactForm /></div>} />
-        <Route path="conference" element={<Conference />} />
-        <Route path="explore" element={<Explore />} />
-        <Route path="contact" element={<ContactForm />} />
-        <Route path="registration" element={<RegistrationForm />} />
-        <Route path="content" element={<Content />} />
-        <Route path="conference/content" element={<Content/>}/>
-        <Route path="conference/content/contact" element={<ContactForm/>}/>
-        <Route path="conference/content" element={<Content/>}/>
-        <Route path="content/contact" element={<ContactForm/>}/>
-        <Route path="terms" element={<Terms/>}/>
-        </Routes>
+      <Navbar/>
+      <Conference/>
+      <Content/>
+      <Explore/>
+      <ContactForm/>
+      
     <Footer/>
     </div>
    

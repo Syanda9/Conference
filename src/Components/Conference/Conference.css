@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 90vh;
   padding: 20px;
   font-family: sans-serif;
   background-size: cover;
@@ -79,6 +79,7 @@
 .upcoming-events:hover {
   background-color: #062c53;
 }
+
 
 /* Responsive styles */
 @media (max-width: 768px) {
